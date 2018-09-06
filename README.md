@@ -52,18 +52,18 @@ by a subplan during planning
 
 # Planner functions
 These are some of the important planning functions and what they do. These are good breakpoints to start with debugging.
-
-`PostgresMain`
-`exec_simple_query()`
+```
+PostgresMain
+exec_simple_query()
 	- execute a simple query
-`pg_analyze_and_rewrite()`
+pg_analyze_and_rewrite()
 	- takes raw parsetree and transforms into query tree
-`pg_plan_queries()`
+pg_plan_queries()
 	- optimize normal plannable queries
-`planner()`
-	`standard_planner()`
+planner()
+	standard_planner()
 		- query optimizer entry point for normal queries
-		`subquery_planner()`
+		subquery_planner()
 			Invokes the planner on a subquery. Is recursively called on each sub-SELECT found in the query tree
 
 			does query tree pre-processing
@@ -78,30 +78,29 @@ These are some of the important planning functions and what they do. These are g
 			make outer joins into inner joins where possible
 
 
-			calls `grouping_planner()`
+			calls grouping_planner()
 				perform planning steps related to grouping and aggregation
 				preprocess grouping sets
 				preprocess group by
 				preprocess targetlist
 
-				calls `query_planner()`
+				calls query_planner()
 					which generates path options which the grouping_planner can pick from
 					constructs RelOptInfos for all base relations involved in the query
 					build targetlists and make sure all the baserels have references to all needed vars
 					add Restrict and Join clauses to appropriate lists belonging to	  these relations
 					generate equivalence classes for provably equivalent expressions
 
-					call `generate_base_implied_equalities` to generate RestrictInfos deduced from EquivalenceClasses
+					call generate_base_implied_equalities to generate RestrictInfos deduced from EquivalenceClasses
 
 					once we have all equivalence sets merged, we can generate pathkeys which representing access methods and where each one can get you
 
 					adds pages and some cost information
 					
-					calls `make_one_rel()` will join together all the paths into one rel	
+					calls make_one_rel() will join together all the paths into one rel	
 						this does, amongst other things, join order
 					converts all other parts of the query into pathlists
 		calls set_cheapest to find the cheapest path
 	choose final path
 	create plan
-
-
+```
