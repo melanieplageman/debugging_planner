@@ -1,3 +1,7 @@
+# Code
+On my fork of Postgres, find the code for the hack discussed in the presentation case study
+[github.com/melanieplageman/postgres/tree/experiment_null_in_subquery]
+
 # Terminology
 Terms I use in the presentation. Most definitions are gathered loosely from the
 PostgreSQL documentation, unless otherwise specified.
