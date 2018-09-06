@@ -1,6 +1,5 @@
 # Code
-On my fork of Postgres, find the code for the hack discussed in the presentation case study
-[github.com/melanieplageman/postgres/tree/experiment_null_in_subquery]
+On my fork of Postgres, find the [code](https://github.com/melanieplageman/postgres/tree/experiment_null_in_subquery) for the hack discussed in the presentation case study
 
 # Terminology
 Terms I use in the presentation. Most definitions are gathered loosely from the
@@ -26,7 +25,7 @@ outer plan, so it needs to be evaluated only once.
 A list of attributes each conforming to a data domain, or data type. For the purposes of this talk, it is basically a row in a table.
 
 ### relation
-A set of tuples. I use the term loosely to refer to the heading and the body as well as the schema, basically as a table. [wikipedia](https://en.wikipedia.org/wiki/Relation_(database))
+A set of tuples. I use the term loosely to refer to the heading and the body as well as the schema, basically as a table. [wikipedia](https://en.wikipedia.org/wiki/Relation_\(database\))
 
 ### predicate
 An expression that evaluates to TRUE, FALSE, or UNKNOWN. Predicates are used in
@@ -51,8 +50,9 @@ combining operator(s) just above it. It is non-executable and must be replaced
 by a subplan during planning
 
 # Useful links
-[https://github.com/postgres/postgres/blob/master/src/backend/optimizer/README]
-[https://www.postgresql.org/docs/current/static/sql-select.html]
+Postgres' READMEs are all highly recommended. The planner README is especially good. [Optimizer README](https://github.com/postgres/postgres/blob/master/src/backend/optimizer/README)
+
+Read the [Postgres docs on SELECT](https://www.postgresql.org/docs/current/static/sql-select.html) for more details on the execution order of the different parts of a `SELECT` query.
 
 # Planner functions
 These are some of the important planning functions and what they do. These are good breakpoints to start with debugging.
