@@ -1,5 +1,9 @@
 # Code
-On my fork of Postgres, find the [code](https://github.com/melanieplageman/postgres/tree/experiment_null_in_subquery) for the hack discussed in the presentation case study
+On my fork of Postgres, find the code for the different hacks discussed in the
+case study.
+- [constant folding (incorrect)](https://github.com/melanieplageman/postgres/tree/const_folding_sublink_wrong)
+- [qual-scoped constant folding](https://github.com/melanieplageman/postgres/tree/qual_scoped_const_folding_sublink)
+- [ANY sublink pullup](https://github.com/melanieplageman/postgres/tree/const_ANY_sublink_pullup)
 
 # Terminology
 Terms I use in the presentation. Most definitions are gathered loosely from the
